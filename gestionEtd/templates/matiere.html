@@ -1,0 +1,28 @@
+{%extends "layout.html" %}
+
+  {% block content %}
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="content-section">
+        <h3>Notes</h3>
+        <p class='text-muted'>La liste des Notes
+          <ul class="list-group">
+            {% for note in listeNote%}
+            <li class="list-group-item list-group-item-light"><a class="ml-2" >{{note.nom}},{{note.valeur}}</a><a href= "{{url_for('delete_note',note_id=note.id_Note)}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-trash"></i></a></li>
+            {% endfor %}
+          </ul>
+          <small class="text-muted">
+           <a class="ml-2" href="{{url_for('addNote',matiere_id=matiere_id)}}">Ajouter Note</a>
+          </small>
+    
+        </p>
+      </div>
+    </div>
+  
+  </div>
+
+
+
+  {% endblock %}
+  

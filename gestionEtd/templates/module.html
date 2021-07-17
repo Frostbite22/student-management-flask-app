@@ -1,0 +1,28 @@
+{%extends "layout.html" %}
+
+  {% block content %}
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="content-section">
+        <h3>Matieres</h3>
+        <p class='text-muted'>La liste des Matieres
+          <ul class="list-group">
+            {% for matiere in listeMatiere%}
+            <li class="list-group-item list-group-item-light"><a class="ml-2" href="{{url_for('matiere',matiere_id=matiere.id)}}">{{matiere.nom_matiere}}</a><a href= "{{url_for('delete_matiere',matiere_id=matiere.id)}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-trash"></i></a></li>
+            {% endfor %}
+          </ul>
+          <small class="text-muted">
+           <a class="ml-2" href="{{url_for('addMatiere',module_id=module_id)}}">Ajouter Matiere</a>
+          </small>
+    
+        </p>
+      </div>
+    </div>
+  
+  </div>
+
+
+
+  {% endblock %}
+  

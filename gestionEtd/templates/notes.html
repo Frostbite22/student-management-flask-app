@@ -1,0 +1,22 @@
+{%extends "layout.html"%}
+    {%block content%}
+  
+    <div>
+      <h4>
+        Add multiple Marks at once : 
+      </h4>
+    </div>
+    <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+    <br><br>
+
+    <h1>Notes</h1>
+      <div>
+          {{ dataframe.to_html(justify="center",classes="table table-striped table-dark table-hover",border=2) | safe}}
+      </div>
+
+    
+    
+    {%endblock content%}

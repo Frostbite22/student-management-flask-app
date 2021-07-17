@@ -1,0 +1,63 @@
+{%extends "layout.html"%}
+    {%block content%}
+ 
+
+      <div>
+        <h4>
+          Add multiple students at once : 
+        </h4>
+      </div>
+      <form method=post enctype=multipart/form-data>
+        <input type=file name=file>
+        <input type=submit value=Upload>
+      </form>
+      <br>
+      <small class="text-muted">
+        Add a single student <a class="ml-2" href="{{url_for('addEtudiant')}}">Click to add new student!</a>
+      </small>
+      <br><br>
+      <div>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">nom</th>
+              <th scope="col">prenom</th>
+              <th scope="col">cin</th>
+              <th scope="col">email</th>
+              <th scope="col">niveau</th>
+              <th scope="col">spec</th>
+              <th scope="col">edit</th>
+              <th scope="col">delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for etd in listeEtudiants%}
+            <tr>
+              <th scope="row">{{etd.id}}</th>
+              <td>{{etd.nom}}</td>
+              <td>{{etd.prenom}}</td>
+              <td>{{etd.cin}}</td>
+              <td>{{etd.email}}</td>
+              <td>{{etd.niveau.nom_niv}}</td>
+              <td>{{etd.specialite.nom_specialite}}</td>
+              <td>
+                <form action="{{url_for('update_etudiant',etudiant_id=etd.id)}}" method="POST">
+                  <input type="submit" class="btn btn-info" value="Edit">
+                </form>
+              </td>
+              <td>
+                <form action="{{url_for('delete_etd',etudiant_id=etd.id)}}" method="POST">
+                  <input type="submit" class="btn btn-danger" value="Delete">
+                </form>
+              </td>
+            </tr>
+           {% endfor %}
+          </tbody>
+        </table>
+      
+      </div>
+
+    
+    
+    {%endblock content%}

@@ -1,0 +1,62 @@
+{%extends "layout.html" %}
+
+  {% block content %}
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="content-section">
+      <h3>Niveaux</h3>
+      <p class='text-muted'>La liste des niveaux
+        <ul class="list-group">
+          {% for niv in listeNiveau |unique %}
+            {%if niv.nom_niv%}
+          <li class="list-group-item list-group-item-light"><a class="ml-2" href="{{url_for('par_niveau',niveau_id=niv.id)}}">{{niv.nom_niv}}</a><a href= "{{url_for('delete_niveau',niveau_id=niv.id)}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-trash"></i></a></li>
+            {%endif %}
+          {% endfor %}
+        </ul>
+        <small class="text-muted">
+          <a class="ml-2" href="{{url_for('addNiveau')}}">Ajouter Niveau</a>
+         </small> 
+      </p>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="content-section">
+      <h3>Spécilalités</h3>
+      <p class='text-muted'>La liste des specialités
+        <ul class="list-group">
+          {% for spec in listeSpecialite%}
+          <li class="list-group-item list-group-item-light"><a class="ml-2" href="{{url_for('par_specialite',specialite_id=spec.id)}}">{{spec.nom_specialite}}</a><a href= "{{url_for('delete_specialite',specialite_id=spec.id)}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-trash"></i></a></li>
+          {% endfor %}
+        </ul>
+        <small class="text-muted">
+         <a class="ml-2" href="{{url_for('addSpecialite')}}">Ajouter Spécialité</a>
+        </small>
+  
+      </p>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="content-section">
+      <h3>Semestres</h3>
+      <p class='text-muted'>La liste des semestres
+        <ul class="list-group">
+          {% for semestre in listeSemestre%}
+          <li class="list-group-item list-group-item-light"><a class="ml-2" href="{{url_for('semestre',semestre_id=semestre.id)}}">{{semestre.num_semestre}}, {{semestre.niveau}}</a><a href= "{{url_for('delete_semestre',semestre_id=semestre.id)}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-trash"></i></a></li>
+          {% endfor %}
+        </ul>
+        <small class="text-muted">
+         <a class="ml-2" href="{{url_for('addSemestre')}}">Ajouter Semestre</a>
+        </small>
+  
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+  {% endblock %}
+  

@@ -1,0 +1,28 @@
+{%extends "layout.html" %}
+
+  {% block content %}
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="content-section">
+        <h3>Modules</h3>
+        <p class='text-muted'>La liste des Modules
+          <ul class="list-group">
+            {% for module in listeModule%}
+            <li class="list-group-item list-group-item-light"><a class="ml-2" href="{{url_for('module',module_id=module.id)}}">{{module.nom_module}}</a><a href= "{{url_for('delete_module',module_id=module.id)}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-trash"></i></a></li>
+            {% endfor %}
+          </ul>
+          <small class="text-muted">
+           <a class="ml-2" href="{{url_for('addModule',semestre_id=semestre_id)}}">Ajouter Module</a>
+          </small>
+    
+        </p>
+      </div>
+    </div>
+  
+  </div>
+
+
+
+  {% endblock %}
+  

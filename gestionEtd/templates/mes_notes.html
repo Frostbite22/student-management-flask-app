@@ -1,0 +1,12 @@
+{%extends "layout.html"%}
+    {%block content%}
+ 
+    <h1>Notes</h1>
+    <div>
+
+        {{ etd_record.to_html(justify="center",classes="table table-striped table-dark table-hover",border=2) | safe}}
+    </div>
+
+    
+    
+    {%endblock content%}

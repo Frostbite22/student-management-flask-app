@@ -1,0 +1,100 @@
+{%extends "layout.html"%}
+    {%block content%}
+      <div class="content-section">
+        <form method="POST" action="">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{title}} </legend>
+                <div class="form-group">
+                    {{form.nom.label(class="form-control-label")}}
+                        {%if form.nom.errors %}
+                            {{form.nom(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.nom.errors %}
+                                    <span> {{error}}</span>
+                                {%endfor%}
+                            </div>
+                        {%else%}
+                            {{form.nom(class="form-control form-control-lg")}}
+                        {%endif%}
+                </div>
+
+                <div class="form-group">
+                    {{form.prenom.label(class="form-control-label")}}
+                        {%if form.prenom.errors %}
+                            {{form.prenom(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.prenom.errors %}
+                                    <span> {{error}}</span>
+                                {%endfor%}
+                            </div>
+                        {%else%}
+                            {{form.prenom(class="form-control form-control-lg")}}
+                        {%endif%}
+                </div>
+
+                <div class="form-group">
+                    {{form.cin.label(class="form-control-label")}}
+                        {%if form.cin.errors %}
+                            {{form.cin(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.cin.errors %}
+                                    <span> {{error}}</span>
+                                {%endfor%}
+                            </div>
+                        {%else%}
+                            {{form.cin(class="form-control form-control-lg")}}
+                        {%endif%}
+                </div>
+
+                <div class="form-group">
+                    {{form.email.label(class="form-control-label")}}                   
+                        {%if form.email.errors %}
+                            {{form.email(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span> {{error}}</span>
+                                {%endfor%}
+                            </div>
+                        {%else%}
+                            {{form.email(class="form-control form-control-lg")}}
+                        {%endif%}
+                </div>
+
+                <div class="form-group">
+                    {{form.spec.label(class="form-control-label")}}
+                    {%if form.spec.errors %}
+                        {{form.spec(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.spec.errors %}
+                                <span> {{error}}</span>
+                            {%endfor%}
+                        </div>
+                    {%else%}
+                        {{form.spec(class="form-control form-control-lg")}}
+                    {%endif%}
+                </div>
+
+
+                <div class="form-group">
+                    {{form.niv.label(class="form-control-label")}}
+                   
+                    {%if form.niv.errors %}
+                        {{form.niv(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.niv.errors %}
+                                <span> {{error}}</span>
+                            {%endfor%}
+                        </div>
+                    {%else%}
+                        {{form.niv(class="form-control form-control-lg")}}
+                    {%endif%}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{form.submit(class="btn btn-outline-info")}}
+            </div>
+        </form>
+      </div>
+    
+    {%endblock content%}
