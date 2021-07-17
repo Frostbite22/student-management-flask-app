@@ -40,7 +40,7 @@ Before running the app, we have to initialize our database by creating an admini
 application will not contain a sign-up feature for security reasons ( you don’t want to create an
 administrator from a web page !!).
 So to do that, go to file routes.py in the directory gestionEtd/routes.py and uncomment the code
-initialization. (I will also show it on the demo videos just to be clear). <br> 
+initialization. <br> 
 Now, run the application so that tables will be created and the administrator would be added.<br>
 Type : ```flask run ```(then ctrl +C to stop it) <br>
 Put again the initialization code into comment (to avoid having creating another database and
